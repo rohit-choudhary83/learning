@@ -12,7 +12,7 @@ import os
 disable_warnings(InsecureRequestWarning)
 
 # Step 1: csv to dataframe
-URL_file_name = "top-1m.csv"
+URL_file_name = "verified_online.csv"
 
 data_frame = pd.read_csv(URL_file_name, names=['rank', 'url'])
 
@@ -21,18 +21,18 @@ data_frame = pd.read_csv(URL_file_name, names=['rank', 'url'])
 URL_list = data_frame['url'].to_list()
 
 # restrict the URL count
-begin = 5000
-end = 10000
+begin = 9025814
+end = 9023064
 collection_list = URL_list[begin:end]
 
 # only for the legitimate
-tag = "https://"
+tag = "http://"
 collection_list = [tag + url for url in collection_list]
 
 
 #Avoiding Duplicates in CSV
 
-file_path = "structured_data_legitimate.csv"
+file_path = "phishing_data.csv"
 write_header = not os.path.exists(file_path)
 
 #data_frame.to_csv(file_path, mode='a', index=False, header=write_header)
@@ -114,8 +114,8 @@ columns = [
 df = pd.DataFrame(data=data, columns=columns)
 
 # labelling
-df['label'] = 0
+df['label'] = 1
 
 #df.to_csv("structured_data_phishing_2.csv", mode='a', index=False, header=False)  # header should be false after the first run
 
-df.to_csv("structured_data_legitimate.csv", mode='a', index=False, header=False)  # header should be false after the first run
+df.to_csv("phishing_data.csv", mode='a', index=False, header=False)  # header should be false after the first run
