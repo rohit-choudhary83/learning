@@ -50,3 +50,4 @@ def process_url():
             print('file Saved!')
 
 # 6 
+process_url()
