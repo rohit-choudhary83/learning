@@ -15,7 +15,7 @@ def scrapes_html(URL):
     if response.status_code == 200:
         return response.text
     else:
-        print(f"cant fatch {URL} status code is : {response.status_code}")
+        print(f"can't fetch {URL} status code is : {response.status_code}")
         return None
 
 # 3 
