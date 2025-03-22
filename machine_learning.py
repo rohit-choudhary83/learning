@@ -6,8 +6,8 @@ from sklearn.metrics import confusion_matrix
 import matplotlib.pyplot as plt
 
 # Read datasets
-legitimate_df = pd.read_csv("structured_data_legitimate.csv")
-phishing_df = pd.read_csv("structured_data_phishing.csv")
+legitimate_df = pd.read_csv("legitimate_data.csv")
+phishing_df = pd.read_csv("phishing_data.csv")
 
 # Combine and shuffle
 df = pd.concat([legitimate_df, phishing_df], axis=0)
