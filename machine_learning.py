@@ -113,7 +113,10 @@ print("Neural Network Final Precision ==> ", NN_precision)
 print("Neural Network Final Recall ==> ", NN_recall)
 
 # Plot results
-data = {'accuracy': [NN_accuracy], 'precision': [NN_precision], 'recall': [NN_recall]}
+data = {'accuracy': [NN_accuracy], 
+        'precision': [NN_precision], 
+        'recall': [NN_recall]}
+
 df_results = pd.DataFrame(data, index=['NN'])
 
 # Visualize results
