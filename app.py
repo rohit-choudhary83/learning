@@ -4,9 +4,32 @@ import machine_learning as ml
 import feature_extraction as fe
 import matplotlib.pyplot as plt
 from bs4 import BeautifulSoup
+import base64
+
+st.header('PHISHING WEBSITES DETECTION SYSTEM')
 
 
-st.header('Phishing Websites Detection System')
+
+
+def get_base64_image(image_path):
+    with open(image_path, "rb") as img_file:
+        return base64.b64encode(img_file.read()).decode()
+
+image_base64 = get_base64_image("C:/Users/smrit/Downloads/learning/learning/image/pwds.png")
+
+page_bg_img = f'''
+<style>
+[data-testid="stAppViewContainer"] {{
+    background-image: url("data:image/png;base64,{image_base64}");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+      color: black;
+}}
+</style>
+'''
+
+st.markdown(page_bg_img, unsafe_allow_html=True)
 
 st.subheader('About')
 
@@ -18,7 +41,6 @@ st.write('This project harnesses the power of machine learning to detect and cla
 
 st.subheader('Phishing Websites')
 st.write('http://www.onlinesbi.digital')
-st.write('https://nbmfsd.com/')
 
 st.subheader('Secure Websites')
 st.write('https://web.whatsapp.com/')
